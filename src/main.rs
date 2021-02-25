@@ -1,6 +1,6 @@
 use actix_web::{get, web, App, HttpServer, HttpResponse, Responder};
 
-#[get("/")]
+#[get("/helloworld")]
 async fn index() -> impl Responder {
     HttpResponse::Ok().body("Hello World!!!")
 }
@@ -17,7 +17,9 @@ pub fn init(config: &mut web::ServiceConfig) {
             .service(healthcheck)
     );
 
-}#[actix_web::main]
+}
+
+#[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
